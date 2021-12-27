@@ -90,7 +90,7 @@
             class="form-horizontal" 
             role="form" 
             method="POST" 
-            action="{{route('products.update', ['id' => $product->model] ) }}" 
+            action="{{route('products.update', ['product' => $product->model] ) }}" 
             enctype="multipart/form-data"
             novalidate>
                 

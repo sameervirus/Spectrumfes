@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ Route::group([
     Route::get('/career', 'Redesign\WebsiteController@career')->name('new_career');
     Route::get('/about', 'Redesign\WebsiteController@about')->name('new_about');
     Route::get('/contacts', 'Redesign\WebsiteController@contacts')->name('new_contacts');
-    Route::get('/products/{product}', 'Redesign\WebsiteController@products')->name('new_products');
+    Route::get('/products/{partner}', 'Redesign\WebsiteController@products')->name('new_products');
     Route::get('/products/{product}/{category}', 'Redesign\WebsiteController@category')->name('new_category');
     Route::get('/products/{product}/{category}/{item}', 'Redesign\WebsiteController@item')->name('new_item');
 
@@ -85,8 +86,8 @@ Route::get('sitemap', function(){
          // add every post to the sitemap
          foreach ($posts as $post)
          {
-            $sitemap->add(URL::to('/ar/projects/'. str_slug($post->product)), $post->created_at, '0.'.$post->id, 'monthly');
-            $sitemap->add(URL::to('/en/projects/'. str_slug($post->product)), $post->created_at, '0.'.$post->id, 'monthly');
+            $sitemap->add(URL::to('/ar/projects/'. Str::slug($post->product)), $post->created_at, '0.'.$post->id, 'monthly');
+            $sitemap->add(URL::to('/en/projects/'. Str::slug($post->product)), $post->created_at, '0.'.$post->id, 'monthly');
          }
     }
 

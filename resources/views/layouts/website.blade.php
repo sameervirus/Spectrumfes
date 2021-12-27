@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>@yield('title') | {{ $site_content['title'] . ' - ' . str_limit($site_content['description'],48) }}</title>
+    <title>@yield('title') | {{ $site_content['title'] . ' - ' . Illuminate\Support\Str::limit($site_content['description'],48) }}</title>
     <meta name="author" content="RainDesigner.com">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -426,7 +426,7 @@
                     <ul class="soical-media">
                         @foreach ($site_content as $key => $value)
 
-                            @if (starts_with($key,'social_') && @$value)
+                            @if (Illuminate\Support\Str::startsWith($key,'social_') && @$value)
                                 <li><a href="{{$value}}" class="fa fa-{{ str_replace('social_','',$key)}}" target="_blank"></a></li>
                             @endif
 

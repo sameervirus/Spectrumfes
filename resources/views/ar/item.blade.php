@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="easyzoom easyzoom--overlay">
-                    @if (ends_with($item->model, '.'))
+                    @if (Illuminate\Support\Str::endsWith($item->model, '.'))
                     <a href="{{url('images/'.$product.'/'. str_replace('.','',$item->model) .'/large_'.$item->model.'.jpg' )}}">
                         <img src="{{asset('images/'.$product.'/'. str_replace('.','',$item->model) .'/small_'.$item->model.'.jpg' )}}" alt="" />
                     </a>

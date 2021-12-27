@@ -50,7 +50,7 @@
               <ul class="list-inline contacts-social-list list-inline-sm">
                 @foreach ($contacts as $key => $value)
 
-                  @if (starts_with($key,'social_') && @$value)
+                  @if (Illuminate\Support\Str::startsWith($key,'social_') && @$value)
                     <li><a class="icon mdi mdi-{{ str_replace('social_','',$key)}}" href="{{$value}}" target="_blank"></a></li>
                   @endif
 

@@ -16,7 +16,7 @@
             <div class="col-md-3">
                 <div class="vendor">
                     <a href="{{ route('category', ['product' => $product, 'category' => $category->category ] )}}">
-                        @if (ends_with($category->model, '.'))
+                        @if (Illuminate\Support\Str::endsWith($category->model, '.'))
                         <img src="{{asset('images/'.$product.'/'. str_replace('.','',$category->model) .'/small_'.$category->model.'.jpg' )}}">
                         @else
                         <img src="{{asset('images/'.$product.'/'. $category->model .'/small_'.$category->model.'.jpg' )}}">

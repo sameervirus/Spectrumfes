@@ -25,7 +25,7 @@
                 <ul class="nav child_menu">
                     @foreach(\App\Admin\Pages\Page::all() as $page)
                     @continue($page->page == 'video')
-                    <li><a href="{{route('pages.edit',$page->page)}}">{{title_case($page->page)}}</a></li>
+                    <li><a href="{{route('pages.edit',$page->page)}}">{{Illuminate\Support\Str::title($page->page)}}</a></li>
                     @endforeach
 				</ul>
             </li>

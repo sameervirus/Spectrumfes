@@ -6,6 +6,8 @@ use App\Admin\SiteContent\Sitecontent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Classes\UploadClass;
+use Illuminate\Support\Str;
+
 
 class SitecontentController extends Controller
 {
@@ -50,7 +52,7 @@ class SitecontentController extends Controller
         if($request->file('file')){
 
             $i = 1;
-            if(str_slug($request->code) == 'favicon') $i=10;
+            if(Str::slug($request->code) == 'favicon') $i=10;
             
             $handle = new UploadClass($request->file('file'));
             
@@ -73,7 +75,7 @@ class SitecontentController extends Controller
 
         SiteContent::create([
             'content' => $content,
-            'code' => str_slug($request->code),
+            'code' => Str::slug($request->code),
             'lang' => $request->lang
         ]);
         

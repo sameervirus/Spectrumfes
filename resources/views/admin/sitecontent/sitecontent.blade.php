@@ -119,7 +119,7 @@
                             @elseif($value->code == 'header' or $value->code == 'footer')
 
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="{{$value->code}}">{{title_case(str_replace('-',' ',$value->code))}} </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="{{$value->code}}">{{Illuminate\Support\Str::title(str_replace('-',' ',$value->code))}} </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <textarea rows="4" name="{{$value->code}}" id="{{$value->code}}" class="form-control col-md-7 col-xs-12">{{$value->content}}</textarea>
                                 </div>
@@ -128,7 +128,7 @@
                             @else
 
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="{{$value->code}}">{{title_case(str_replace('-',' ',$value->code))}} </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="{{$value->code}}">{{Illuminate\Support\Str::title(str_replace('-',' ',$value->code))}} </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" name="{{$value->code}}" id="{{$value->code}}" class="form-control col-md-7 col-xs-12" value="{{$value->content}}">
                                 </div>

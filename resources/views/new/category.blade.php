@@ -16,7 +16,7 @@
         <!-- Thumbnail Classic-->
         <article class="thumbnail thumbnail-classic thumbnail-lg">
             <a class="thumbnail-classic-figure" href="{{ route('new_item', ['locale'=>app()->getLocale(),'product' => $product->product, 'category' => $item->category, $item->model ] )}}">
-                @if (ends_with($item->model, '.'))
+                @if (Illuminate\Support\Str::endsWith($item->model, '.'))
                 <img src="{{asset('images/'.$product->product.'/'. str_replace('.','',$item->model) .'/small_'.$item->model.'.jpg' )}}" alt="" width="570" height="299">
                 @else
                 <img src="{{asset('images/'.$product->product.'/'. $item->model .'/small_'.$item->model.'.jpg' )}}" alt="" width="570" height="299">

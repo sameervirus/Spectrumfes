@@ -16,7 +16,7 @@
             <!-- Nav tabs-->
             <ul class="nav nav-tabs list-category">
                 @foreach ($products as $product)
-                <li class="nav-item list-category-item" role="presentation"><a class="nav-link {{ $loop->index == 0 ? 'active' :'' }}" href="#{{$product->product}}" data-toggle="tab">{{app()->getLocale() == 'en' ? title_case($product->product) : $product->name }}</a></li>
+                <li class="nav-item list-category-item" role="presentation"><a class="nav-link {{ $loop->index == 0 ? 'active' :'' }}" href="#{{$product->product}}" data-toggle="tab">{{app()->getLocale() == 'en' ? Illuminate\Support\Str::title($product->product) : $product->name }}</a></li>
                 @endforeach
             </ul>
             <!-- Tab panes-->

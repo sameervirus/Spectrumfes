@@ -6,6 +6,8 @@ use App\Admin\Products\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Classes\UploadClass;
+use Illuminate\Support\Str;
+
 
 class ProductController extends Controller
 {
@@ -69,36 +71,36 @@ class ProductController extends Controller
                 if ($handle->uploaded) {          
                   $handle->image_resize         = true;
                   $handle->image_ratio_fill     = true;          
-                  $handle->file_new_name_body   = 'thumb_' . str_slug($request->model);
+                  $handle->file_new_name_body   = 'thumb_' . Str::slug($request->model);
                   $handle->file_new_name_ext    = 'jpg';
                   $handle->image_x              = 65;
                   $handle->image_y              = 57;
                   $handle->image_convert        ='jpg';           
-                  $handle->process("images/".$request->partner."/".str_slug($request->model)."/");
+                  $handle->process("images/".$request->partner."/".Str::slug($request->model)."/");
                   if ($handle->processed) {} else {$massage = 'error : ' . $handle->error;}
                 }
 
                 if ($handle->uploaded) {  
                   $handle->image_resize         = true;
                   $handle->image_ratio_fill     = true;
-                  $handle->file_new_name_body   = 'small_' . str_slug($request->model);
+                  $handle->file_new_name_body   = 'small_' . Str::slug($request->model);
                   $handle->file_new_name_ext    = 'jpg';
                   $handle->image_x              = 280;
                   $handle->image_y              = 245;
                   $handle->image_convert        ='jpg';
-                  $handle->process("images/".$request->partner."/".str_slug($request->model)."/");
+                  $handle->process("images/".$request->partner."/".Str::slug($request->model)."/");
                   if ($handle->processed) {} else {$massage = 'error : ' . $handle->error;}
                 }
 
                 if ($handle->uploaded) {
                   $handle->image_resize         = true;
                   $handle->image_ratio_fill     = true;
-                  $handle->file_new_name_body   = 'large_' . str_slug($request->model);
+                  $handle->file_new_name_body   = 'large_' . Str::slug($request->model);
                   $handle->file_new_name_ext    = 'jpg';
                   $handle->image_x              = 1118;
                   $handle->image_y              = 985;
                   $handle->image_convert        ='jpg';           
-                  $handle->process("images/".$request->partner."/".str_slug($request->model)."/");
+                  $handle->process("images/".$request->partner."/".Str::slug($request->model)."/");
                   if ($handle->processed) {$handle->clean();} else {$massage = 'error : ' . $handle->error;}          
                 }
             }
@@ -107,9 +109,9 @@ class ProductController extends Controller
         $massage = 'Successfully Added';
 
         \DB::table($request->partner .'_product')->insert([
-            'category' => str_slug($request->category),
+            'category' => Str::slug($request->category),
             'category_ar' => $request->category_ar,
-            'model' => str_slug($request->model),
+            'model' => Str::slug($request->model),
             'model_ar' => $request->model_ar ?? '',
             'features' => $request->features ?? '',
             'features_ar' => $request->features_ar ?? '',
@@ -181,36 +183,36 @@ class ProductController extends Controller
                 if ($handle->uploaded) {          
                   $handle->image_resize         = true;
                   $handle->image_ratio_fill     = true;          
-                  $handle->file_new_name_body   = 'thumb_' . str_slug($request->model);
+                  $handle->file_new_name_body   = 'thumb_' . Str::slug($request->model);
                   $handle->file_new_name_ext    = 'jpg';
                   $handle->image_x              = 65;
                   $handle->image_y              = 57;
                   $handle->image_convert        ='jpg';
-                  $handle->process("images/".$request->partner."/".str_slug($request->model)."/");
+                  $handle->process("images/".$request->partner."/".Str::slug($request->model)."/");
                   if ($handle->processed) {} else {$massage = 'error : ' . $handle->error;}
                 }
 
                 if ($handle->uploaded) {  
                   $handle->image_resize         = true;
                   $handle->image_ratio_fill     = true;
-                  $handle->file_new_name_body   = 'small_' . str_slug($request->model);
+                  $handle->file_new_name_body   = 'small_' . Str::slug($request->model);
                   $handle->file_new_name_ext    = 'jpg';
                   $handle->image_x              = 280;
                   $handle->image_y              = 245;
                   $handle->image_convert        ='jpg';
-                  $handle->process("images/".$request->partner."/".str_slug($request->model)."/");
+                  $handle->process("images/".$request->partner."/".Str::slug($request->model)."/");
                   if ($handle->processed) {} else {$massage = 'error : ' . $handle->error;}
                 }
 
                 if ($handle->uploaded) {
                   $handle->image_resize         = true;
                   $handle->image_ratio_fill     = true;
-                  $handle->file_new_name_body   = 'large_' . str_slug($request->model);
+                  $handle->file_new_name_body   = 'large_' . Str::slug($request->model);
                   $handle->file_new_name_ext    = 'jpg';
                   $handle->image_x              = 1118;
                   $handle->image_y              = 985;
                   $handle->image_convert        ='jpg';
-                  $handle->process("images/".$request->partner."/".str_slug($request->model)."/");
+                  $handle->process("images/".$request->partner."/".Str::slug($request->model)."/");
                   if ($handle->processed) {$handle->clean();} else {$massage = 'error : ' . $handle->error;}          
                 }
 
@@ -221,9 +223,9 @@ class ProductController extends Controller
         \DB::table($request->partner .'_product')
             ->where('model', $item)
             ->update([
-                'model'      => str_slug($request->model),
+                'model'      => Str::slug($request->model),
                 'model_ar'   => $request->model_ar,
-                'category'  => str_slug($request->category),
+                'category'  => Str::slug($request->category),
                 'category_ar' => $request->category_ar,
                 'features' => $request->features,
                 'features_ar' => $request->features_ar,

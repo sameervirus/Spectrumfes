@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -38,6 +40,9 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('site_content', \App\Admin\SiteContent\Sitecontent::where('lang' , 'en')->pluck('content', 'code'));  
             } 
         });
+
+        Blade::withoutDoubleEncoding();
+
     }
 
     /**

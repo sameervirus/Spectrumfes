@@ -1,68 +1,83 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
-    "license": "MIT",
-    "type": "project",
-    "require": {
-        "php": ">=7.0.0",
-        "fideloper/proxy": "~3.3",
-        "jenssegers/date": "^3.2",
-        "kim/activity": "^1.1",
-        "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0",
-        "maatwebsite/excel": "~2.1.0",
-        "roumen/feed": "^2.11",
-        "roumen/sitemap": "^2.7",
-        "spatie/laravel-honeypot": "^1.4",
-        "weboap/visitor": "^2.0",
-        "zizaco/entrust": "5.2.x-dev"
-    },
-    "require-dev": {
-        "filp/whoops": "~2.0",
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "~1.0",
-        "phpunit/phpunit": "~6.0",
-        "symfony/thanks": "^1.0"
-    },
-    "autoload": {
-    	"files": [
-            "app/helpers.php"
-        ],
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ],
-        "psr-4": {
-            "App\\": "app/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "dont-discover": [
-            ]
-        }
-    },
-    "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate"
-        ],
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover"
-        ]
-    },
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true,
-        "optimize-autoloader": true
+  "name": "laravel/laravel",
+  "description": "The Laravel Framework.",
+  "keywords": [
+    "framework",
+    "laravel"
+  ],
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "php": ">=8.0.0",
+    "codebot/entrust": "^8.0",
+    "facade/ignition": "^2.3.6",
+    "fideloper/proxy": "^4.0",
+    "jenssegers/date": "^4",
+    "kim/activity": "dev-master",
+    "laravel/framework": "8.*",
+    "laravel/tinker": "^2.0",
+    "laravel/ui": "^3.4",
+    "laravelium/feed": "8.*",
+    "laravelium/sitemap": "8.*",
+    "maatwebsite/excel": "^3.1",
+    "nunomaduro/collision": "^5.0",
+    "spatie/laravel-honeypot": "3.0.1",
+    "weboap/visitor": "dev-master"
+  },
+  "require-dev": {
+    "filp/whoops": "~2.0",
+    "fzaninotto/faker": "~1.4",
+    "mockery/mockery": "~1.0",
+    "phpunit/phpunit": "^9",
+    "symfony/thanks": "^1.0"
+  },
+  "autoload": {
+    "files": [
+      "app/helpers.php"
+    ],
+    "classmap": [
+      "database/seeds",
+      "database/factories"
+    ],
+    "psr-4": {
+      "App\\": "app/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "dont-discover": []
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "@php artisan key:generate"
+    ],
+    "post-autoload-dump": [
+      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+      "@php artisan package:discover"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/sameervirus/Visitor.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/sameervirus/laravel-online-users.git"
+    }
+  ]
 }

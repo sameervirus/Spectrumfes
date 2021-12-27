@@ -7,7 +7,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>{{ title_case($data->page) }} <small></small></h3>
+                <h3>{{ Illuminate\Support\Str::title($data->page) }} <small></small></h3>
             </div>
             <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
@@ -42,7 +42,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>{{ title_case($data->page) }} <small>after make your changes press save change buttom to take active</small></h2>
+                        <h2>{{ Illuminate\Support\Str::title($data->page) }} <small>after make your changes press save change buttom to take active</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -61,7 +61,7 @@
                             
                             <input type="hidden" name="_method" value="PATCH">
                             <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="{{$data->page}}">{{ title_case($data->page) }}</label>
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="{{$data->page}}">{{ Illuminate\Support\Str::title($data->page) }}</label>
                                 <div class="col-md-10 col-sm-10 col-xs-12">
                                     @if($data->page == 'video')
                                     <input type="text" name="content" id="{{$data->page}}" class="form-control col-md-7 col-xs-12" value="{{$data->content}}" placeholder="Youtube Link">
